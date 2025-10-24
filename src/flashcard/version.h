@@ -10,7 +10,7 @@ typedef struct {
 
 #define flashcard_version() (FlashCard_Version) {   \
     .major = 0                                      \
-    , .minor = 2                                    \
+    , .minor = 3                                    \
     , .patch = 0                                    \
 }
 
