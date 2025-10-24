@@ -18,6 +18,8 @@ OBJS += $(CACHE)/screen_context.o
 OBJS += $(CACHE)/screen_manager.o
 OBJS += $(CACHE)/screen_main.o
 OBJS += $(CACHE)/screen_flashcard.o
+OBJS += $(CACHE)/button.o
+OBJS += $(CACHE)/text.o
 
 
 $(CACHE)/main.o: src/flashcard/main.c
@@ -37,6 +39,14 @@ $(CACHE)/screen_main.o: src/flashcard/screen_main.c
 
 
 $(CACHE)/screen_flashcard.o: src/flashcard/screen_flashcard.c
+	$(CC) $(CFLAGS) -c $< -o $@
+
+
+$(CACHE)/button.o: src/flashcard/button.c
+	$(CC) $(CFLAGS) -c $< -o $@
+
+
+$(CACHE)/text.o: src/flashcard/text.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
 

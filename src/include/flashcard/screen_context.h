@@ -6,7 +6,8 @@
 #define VIRTUAL_SCREEN_HEIGHT 720
 
 
-#define FONT_SIZE 30
+#define FONT_SIZE 23
+#define FONT_BOLD_SIZE 25
 #define FONT "assets/fonts/"
 
 
@@ -29,12 +30,14 @@ typedef struct State State;
 typedef struct {
     State ** state_stack;
     float frame_time;
-
-    Font font;
 } ScreenManager_Context;
 
+// TODO: refactor, make it clean
+extern Font font;
+extern Font font_bold;
 
-ScreenManager_Context flash_card_context(State ** state_stack, Font font);
+
+ScreenManager_Context flash_card_context(State ** state_stack);
 
 
 struct State {

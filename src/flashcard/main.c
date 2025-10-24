@@ -20,7 +20,10 @@ static State * state_mem_buff[] = {
 static ScreenManager_Context context;
 static ScreenManager manager;
 
-static Font custom_font;
+
+#define NUM_CHARS 256
+int codepoints[NUM_CHARS] = { 0 };
+
 
 #include "version.h"
 
@@ -35,26 +38,32 @@ int main(void) {
     SetTargetFPS(30);
     SetConfigFlags(FLAG_VSYNC_HINT);
 
+    SetWindowMinSize(VIRTUAL_SCREEN_WIDTH, VIRTUAL_SCREEN_HEIGHT);
     SetWindowState(FLAG_WINDOW_RESIZABLE);
     MaximizeWindow();
 
-    custom_font = LoadFontEx(FONT "font.otf", FONT_SIZE, NULL, 0);
-    assert(custom_font.texture.id != 0);
+    for (int i = 0; i < 256; i++) {
+        codepoints[i] = 32 + i;
+    }
+
+    font = LoadFontEx(FONT "font.ttf", FONT_SIZE, codepoints, NUM_CHARS);
+    font_bold = LoadFontEx(FONT "font_bold.ttf", FONT_BOLD_SIZE, codepoints, NUM_CHARS);
 
     screen_main = state_screen_main();
     screen_flash_card = state_screen_flash_card();
 
-    context = flash_card_context(state_mem_buff, custom_font);
+    context = flash_card_context(state_mem_buff);
     manager = flash_card(&screen_main.super, &context);
 
     while(WindowShouldClose() == false) {
         BeginDrawing();
-        ClearBackground(WHITE);
+        ClearBackground(GRAY);
         flash_card_execute(&manager);
         EndDrawing();
     }
 
-    UnloadFont(custom_font);
+    UnloadFont(font);
+    UnloadFont(font_bold);
     CloseWindow();
 
     return EXIT_SUCCESS;

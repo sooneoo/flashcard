@@ -1,11 +1,15 @@
 #ifndef _SCREEN_MAIN_H_
 #define _SCREEN_MAIN_H_
 
-#include "flashcard/screen_context.h"
+#include "screen_context.h"
+#include "button.h"
 
 
 typedef struct {
     State super;
+
+    Button btn_study;
+    Button btn_practice;
 } State_ScreenMain;
 
 
