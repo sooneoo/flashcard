@@ -1,6 +1,7 @@
 #ifndef _VERSION_H_
 #define _VERSION_H_
 
+
 typedef struct {
     unsigned short major;
     unsigned short minor;
@@ -10,7 +11,7 @@ typedef struct {
 
 #define flashcard_version() (FlashCard_Version) {   \
     .major = 0                                      \
-    , .minor = 4                                    \
+    , .minor = 5                                    \
     , .patch = 0                                    \
 }
 

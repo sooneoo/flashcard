@@ -7,6 +7,7 @@ PKGS += raylib
 CFLAGS += -Wall -Wextra -pedantic
 CFLAGS += -O2
 CFLAGS += -Isrc/include
+CFLAGS += -finput-charset=UTF-8
 CFLAGS += $$(pkg-config --cflags $(PKGS))
 
 LIBS += -lm -lalloc
@@ -17,7 +18,7 @@ OBJS += $(CACHE)/main.o
 OBJS += $(CACHE)/screen_context.o
 OBJS += $(CACHE)/screen_manager.o
 OBJS += $(CACHE)/screen_main.o
-OBJS += $(CACHE)/screen_flashcard.o
+OBJS += $(CACHE)/screen_review.o
 OBJS += $(CACHE)/button.o
 OBJS += $(CACHE)/text.o
 
@@ -38,7 +39,7 @@ $(CACHE)/screen_main.o: src/flashcard/screen_main.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
 
-$(CACHE)/screen_flashcard.o: src/flashcard/screen_flashcard.c
+$(CACHE)/screen_review.o: src/flashcard/screen_review.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
 

@@ -40,7 +40,7 @@ static State * state_screen_main_callback(State_ScreenMain * self, ScreenManager
     int screen_width = GetScreenWidth();
     int screen_height = GetScreenHeight();
 
-    draw_overview((screen_width - 600 ) /2, 100, 600, screen_height / 3);
+    draw_overview((screen_width - 600 ) /2, 100, 600, 350);
 
     draw_record((screen_width - 600 ) /2, 160, 600, "Matematika", 532, 30);
     draw_record((screen_width - 600 ) /2, 195, 600, "Počítačová grafika", 112, 0);
