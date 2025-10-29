@@ -20,6 +20,7 @@ OBJS += $(CACHE)/screen_main.o
 OBJS += $(CACHE)/screen_review.o
 OBJS += $(CACHE)/button.o
 OBJS += $(CACHE)/text.o
+OBJS += $(CACHE)/vector.o
 
 
 $(CACHE)/main.o: src/flashcard/main.c
@@ -47,6 +48,10 @@ $(CACHE)/button.o: src/flashcard/button.c
 
 
 $(CACHE)/text.o: src/flashcard/text.c
+	$(CC) $(CFLAGS) -c $< -o $@
+
+
+$(CACHE)/vector.o: src/flashcard/vector.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
 
