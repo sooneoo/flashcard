@@ -5,10 +5,26 @@
 #include "screen_context.h"
 #include "button.h"
 
+typedef enum {
+    ReviewID_Question
+    , ReviewID_Answare
+} ReviewID;
+
+
+typedef struct {
+    ReviewID ID;
+    
+    const char * text;
+    Texture2D card_texture; 
+} Review;
+
 
 typedef struct {
     State super;
 
+    Review review;
+
+    Button btn_show;
     Button btn_again;
     Button btn_hard;
     Button btn_good;

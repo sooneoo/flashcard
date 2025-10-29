@@ -7,10 +7,9 @@ PKGS += raylib
 CFLAGS += -Wall -Wextra -pedantic
 CFLAGS += -O2
 CFLAGS += -Isrc/include
-CFLAGS += -finput-charset=UTF-8
 CFLAGS += $$(pkg-config --cflags $(PKGS))
 
-LIBS += -lm -lalloc
+LIBS += -lm -lalloc -ljson
 LIBS += $$(pkg-config --libs $(PKGS))
 
 
